@@ -1,6 +1,7 @@
-/* Name: gdiTemplate.c v0.0.0
- * Date: 2021-09-11
+/* Name: gdiTemplate.c v0.0.1
+ * Date: 2021-09-12
  * Intro: Generates a random sky map every 5 seconds.
+ * Update: Modify to adapt new initialize function.
  */
 #include <stdlib.h>
 
@@ -28,3 +29,5 @@ DWORD WINAPI threadProc(LPVOID lpParamter) {
 	}
 	return 0l;
 }
+
+int WINAPI initProc(HINSTANCE hInstance, HINSTANCE prevInstance, LPSTR pCmdLine, int nCmdShow) {}

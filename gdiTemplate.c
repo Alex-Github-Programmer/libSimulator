@@ -1,9 +1,14 @@
-/* Name: gdiTemplate.c v0.0.0
- * Date: 2021-09-11
+/* Name: gdiTemplate.c v0.1.0
+ * Date: 2021-09-12
  * Intro: A lib to use gdi with c easier.
+ * Update: Now initialize function allowed.
  */
 #include <windows.h>
 #include "gdiTemplate.h"
+
+#if _GDITEMPLATE_H != 0x000100
+#error Version not support
+#endif
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch(uMsg) {
@@ -28,6 +33,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPSTR pCmdLine, int nCmdShow) {
+	initProc(hInstance, prevInstance, pCmdLine, nCmdShow);
 	const char *CLASS_NAME = "GDITEMPLATE";
 	WNDCLASS wc = {};
 	wc.lpfnWndProc = WindowProc;
